@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Store | Products</title>
+
+    <!-- Google Font + Icons -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-...hash..."
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- ===== Navbar ===== -->
+    <nav class="navbar">
+      <div class="brand">
+        <i class="fa-solid fa-bag-shopping"></i>
+        <span>My Store</span>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Deals</a></li>
+
+        <li class="account">
+          <button id="accountBtn">
+            <i class="fa-solid fa-user"></i> Public Account
+            <i class="fa-solid fa-chevron chevron"></i>
+          </button>
+        </li>
+
+        <li>
+          <button id="cartBtn" class="cart-icon">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span id="cartCount" class="badge">0</span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- ===== Filters + Search ===== -->
+    <header class="container header-filters" role="toolbar">
+      <input
+        id="searchInput"
+        type="search"
+        placeholder="Search products…"
+        aria-label="Search products"
+      />
+
+      <select id="categoryFilter"></select>
+
+      <select id="priceFilter">
+        <option value="">Any price</option>
+        <option value="0-50">Under ₹50</option>
+        <option value="50-100">₹50 – ₹100</option>
+        <option value="100-500">₹100 – ₹500</option>
+        <option value="500-999999">₹500 +</option>
+      </select>
+
+      <select id="ratingFilter">
+        <option value="">Any rating</option>
+        <option value="4">4★ & up</option>
+        <option value="3">3★ & up</option>
+        <option value="2">2★ & up</option>
+      </select>
+    </header>
+
+    <!-- ===== Product Grid ===== -->
+    <main class="container">
+      <section id="productGrid" class="product-grid"></section>
+    </main>
+
+    <!-- ===== Product Details Modal ===== -->
+    <div id="productModal" class="modal hidden">
+      <div class="modal-content">
+        <span id="closeModal" class="close">&times;</span>
+        <img id="modalImg" alt="" />
+        <h2 id="modalTitle"></h2>
+        <p id="modalDesc"></p>
+        <p id="modalPrice" class="price"></p>
+        <p id="modalRating" class="rating"></p>
+        <button id="modalAddBtn" class="btn-primary">
+          <i class="fa-solid fa-cart-plus"></i> Add to Cart
+        </button>
+      </div>
+    </div>
+
+    <!-- ===== Cart Off-canvas ===== -->
+    <aside id="cartPanel" class="cart-panel hidden">
+      <header>
+        <h2>Your Cart</h2>
+        <button id="closeCart" class="close">&times;</button>
+      </header>
+
+      <ul id="cartItems" class="cart-items"></ul>
+
+      <footer>
+        <p class="cart-total">
+          Total: ₹<span id="cartTotal">0.00</span>
+        </p>
+        <button class="btn-primary" id="checkoutBtn">Checkout</button>
+      </footer>
+    </aside>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
